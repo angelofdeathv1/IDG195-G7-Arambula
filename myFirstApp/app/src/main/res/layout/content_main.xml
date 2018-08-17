@@ -12,14 +12,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hola amiguitos de IDGD" />
+        android:text="Usuario" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario" />
+        android:text="Contraseña" />
 
     <EditText
+        android:id="@+id/edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
