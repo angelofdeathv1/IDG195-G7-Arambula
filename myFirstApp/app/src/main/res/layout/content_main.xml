@@ -12,9 +12,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario" />
+        android:text="Matricula" />
 
     <EditText
+        android:id="@+id/edt_matricula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -24,11 +25,12 @@
         android:text="Contraseña" />
 
     <EditText
-        android:id="@+id/edt"
+        android:id="@+id/edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFAA00"
