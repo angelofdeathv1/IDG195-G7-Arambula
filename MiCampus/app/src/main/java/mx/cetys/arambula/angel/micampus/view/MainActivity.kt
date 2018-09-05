@@ -1,5 +1,6 @@
 package mx.cetys.arambula.angel.micampus.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -29,9 +30,12 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            obtenerPerfilRequest()
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
+        }
+
+        btn_login.setOnClickListener { _ ->
+            obtenerPerfilRequest()
         }
     }
 
@@ -45,9 +49,19 @@ class MainActivity : AppCompatActivity() {
                 Response.Listener { response ->
                     val perfiles = gson.fromJson(response, Array<Perfil>::class.java).toList()
 
-                    Toast.makeText(applicationContext,
-                            utils.buscarPerfilN(perfiles, matricula, password).toString(),
-                            Toast.LENGTH_LONG).show()
+                    val perfil = utils.buscarPerfilN(perfiles, matricula, password)
+                    if (perfil != null) {
+                        val intent = Intent(applicationContext, MainMenuActivity::class.java)
+                        //intent.putExtra("nombre", perfil.nombre)
+                        intent.putExtra("perfil", perfil)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(
+                                applicationContext,
+                                "Perfil no encontrado, pague su inscripcion",
+                                Toast.LENGTH_SHORT
+                        ).show()
+                    }
 
                 }, Response.ErrorListener { error ->
             Toast.makeText(

@@ -1,7 +1,10 @@
 package mx.cetys.arambula.angel.micampus.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import com.google.gson.annotations.SerializedName
 
+@Parcelize
 data class Perfil(
         @SerializedName("id")
         val id: String,
@@ -23,5 +26,5 @@ data class Perfil(
         val padre: Tutor,
         @SerializedName("Madre")
         val madre: Tutor
-)
+) : Parcelable
 
