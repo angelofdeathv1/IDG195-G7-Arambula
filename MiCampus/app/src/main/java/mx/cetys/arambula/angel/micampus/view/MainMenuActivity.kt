@@ -12,6 +12,6 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(activity_main_menu)
         val perfil = intent.getParcelableExtra<Perfil>("perfil")
-        txt_logged_user.text = perfil.carrera
+        txt_logged_user.text = perfil.carrera + " " + perfil.apellido + " " + perfil.nombre
     }
 }
