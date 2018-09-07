@@ -10,6 +10,7 @@ import mx.cetys.arambula.angel.micampus.R.layout.perfil_row
 
 class PerfilAdapter(val items: List<Perfil>, val context: Context) :
         RecyclerView.Adapter<PerfilAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
                 LayoutInflater.from(context).inflate(
@@ -22,12 +23,13 @@ class PerfilAdapter(val items: List<Perfil>, val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvPerfil.text = items.get(position).nombre
-
+        holder.txt_perfil.text = items.get(position).nombre
+        holder.txt_apellido.text = items.get(position).apellido
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvPerfil = view.tv_txt_perfil
+        val txt_perfil = view.tv_txt_nombre
+        val txt_apellido = view.tv_txt_apellido
     }
 
 }

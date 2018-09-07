@@ -40,7 +40,7 @@ class PerfilListViewActivity : AppCompatActivity() {
                 "1234",
                 "",
                 "Shamira",
-                "Arambula",
+                "",
                 "",
                 2,
                 2,

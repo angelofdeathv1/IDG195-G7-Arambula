@@ -5,9 +5,17 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv_txt_perfil"
+        android:id="@+id/tv_txt_nombre"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:text="Row" />
+        android:layout_height="wrap_content"
+        android:text="Row"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/tv_txt_apellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Row"
+        android:textSize="24dp" />
 
 </android.support.v7.widget.LinearLayoutCompat>
