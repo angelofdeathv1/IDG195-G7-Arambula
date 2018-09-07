@@ -3,23 +3,48 @@ package mx.cetys.arambula.angel.micampus.view
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_perfil_list_view.*
 import mx.cetys.arambula.angel.micampus.R.layout.activity_perfil_list_view
+import mx.cetys.arambula.angel.micampus.model.EndPoints
 import mx.cetys.arambula.angel.micampus.model.Perfil
 import mx.cetys.arambula.angel.micampus.model.PerfilAdapter
 import mx.cetys.arambula.angel.micampus.model.Tutor
 
 class PerfilListViewActivity : AppCompatActivity() {
 
-    val perfiles: ArrayList<Perfil> = ArrayList()
+    private val perfiles: ArrayList<Perfil> = ArrayList()
+    private val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_perfil_list_view)
 
-        fillPerfil()
+        //fillPerfil()
         rv_perfil_list.layoutManager = LinearLayoutManager(this)
-        rv_perfil_list.adapter = PerfilAdapter(perfiles, applicationContext)
+        obtenerPerfilRequest()
+        //rv_perfil_list.adapter = PerfilAdapter(perfiles, applicationContext)
+    }
+
+    private fun obtenerPerfilRequest() {
+        val queue = Volley.newRequestQueue(this)
+
+        val stringRequest = StringRequest(Request.Method.GET, EndPoints.PERFIL.url.toString(),
+                Response.Listener { response ->
+                    val perfiles = gson.fromJson(response, Array<Perfil>::class.java).toList()
+
+                    rv_perfil_list.adapter = PerfilAdapter(perfiles, applicationContext)
+
+                }, Response.ErrorListener { error ->
+            Toast.makeText(
+                    applicationContext, error.message, Toast.LENGTH_SHORT).show()
+        })
+        queue.add(stringRequest)
     }
 
     fun fillPerfil() {
@@ -40,7 +65,7 @@ class PerfilListViewActivity : AppCompatActivity() {
                 "1234",
                 "",
                 "Shamira",
-                "",
+                "Macias",
                 "",
                 2,
                 2,
@@ -52,7 +77,7 @@ class PerfilListViewActivity : AppCompatActivity() {
                 "1234",
                 "",
                 "Andrea",
-                "",
+                "Vazquez",
                 "",
                 2,
                 2,
@@ -64,7 +89,7 @@ class PerfilListViewActivity : AppCompatActivity() {
                 "1234",
                 "",
                 "Ivannia",
-                "",
+                "Arellano",
                 "",
                 2,
                 2,
@@ -76,7 +101,7 @@ class PerfilListViewActivity : AppCompatActivity() {
                 "1234",
                 "",
                 "Luis",
-                "",
+                "Gonzalez",
                 "",
                 2,
                 2,
@@ -88,7 +113,7 @@ class PerfilListViewActivity : AppCompatActivity() {
                 "1234",
                 "",
                 "Julio",
-                "",
+                "Rodriguez",
                 "",
                 2,
                 2,
