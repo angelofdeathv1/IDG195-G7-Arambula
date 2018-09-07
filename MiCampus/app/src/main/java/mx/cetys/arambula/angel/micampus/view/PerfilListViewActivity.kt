@@ -9,7 +9,7 @@ import mx.cetys.arambula.angel.micampus.model.Perfil
 import mx.cetys.arambula.angel.micampus.model.PerfilAdapter
 import mx.cetys.arambula.angel.micampus.model.Tutor
 
-class PerfilListView : AppCompatActivity() {
+class PerfilListViewActivity : AppCompatActivity() {
 
     val perfiles: ArrayList<Perfil> = ArrayList()
 
@@ -41,6 +41,54 @@ class PerfilListView : AppCompatActivity() {
                 "",
                 "Shamira",
                 "Arambula",
+                "",
+                2,
+                2,
+                Tutor("tutorA"),
+                Tutor("tutorB"))
+        )
+        perfiles.add(Perfil(
+                "3",
+                "1234",
+                "",
+                "Andrea",
+                "",
+                "",
+                2,
+                2,
+                Tutor("tutorA"),
+                Tutor("tutorB"))
+        )
+        perfiles.add(Perfil(
+                "4",
+                "1234",
+                "",
+                "Ivannia",
+                "",
+                "",
+                2,
+                2,
+                Tutor("tutorA"),
+                Tutor("tutorB"))
+        )
+        perfiles.add(Perfil(
+                "4",
+                "1234",
+                "",
+                "Luis",
+                "",
+                "",
+                2,
+                2,
+                Tutor("tutorA"),
+                Tutor("tutorB"))
+        )
+        perfiles.add(Perfil(
+                "5",
+                "1234",
+                "",
+                "Julio",
+                "",
                 "",
                 2,
                 2,
