@@ -9,8 +9,29 @@ export default class App extends React.Component {
       password: ''
     };
   }
+
+  _getAlumnosFromApiAsync() {
+    return fetch('http://138.68.231.116:5000/alumnos')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        return responseJson;
+      })
+      .then((object)=>{
+        console.log(object)
+        object.find(obj => {
+          return obj.matricula == "t020888"
+        })
+      })
+      .then((object)=>{
+        console.log(object)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   _onPressButton() {
-    Alert.alert('Hola alumno universal!')
+    Alert('test')
   }
 
   render() {
@@ -28,7 +49,7 @@ export default class App extends React.Component {
         />
         <View style={styles.buttonContainer}>
           <Button
-            onPress={this._onPressButton}
+            onPress={this._getAlumnosFromApiAsync}
             title="Ingresar"
             //color="#000"
           />
