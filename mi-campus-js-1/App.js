@@ -14,24 +14,19 @@ export default class App extends React.Component {
     return fetch('http://138.68.231.116:5000/alumnos')
       .then((response) => response.json())
       .then((responseJson) => {
-        return responseJson;
+        var test = responseJson.find(function (obj) { return obj.matricula === 't20888' });
+        return test;
       })
-      .then((object)=>{
-        console.log(object)
-        object.find(obj => {
-          return obj.matricula == "t020888"
-        })
-      })
-      .then((object)=>{
-        console.log(object)
+      .then((object) => {
+        if (object === undefined) {
+          alert('Mi matricula lleva 0 compa')
+        } else {
+          alert(object.matricula + ' ' + object.nombre)
+        }
       })
       .catch((error) => {
         console.error(error);
       });
-  }
-
-  _onPressButton() {
-    Alert('test')
   }
 
   render() {
@@ -51,7 +46,7 @@ export default class App extends React.Component {
           <Button
             onPress={this._getAlumnosFromApiAsync}
             title="Ingresar"
-            //color="#000"
+          //color="#000"
           />
         </View>
       </View>
